@@ -1,9 +1,8 @@
 return {
   {
-    "Alexis12119/nightly.nvim",
-    priority = 1000, -- make sure to load this before all the other start plugins
+    "ribru17/bamboo.nvim",
     config = function()
-      require("nightly").setup({
+      require("bamboo").setup({
         transparent = false,
         styles = {
           comments = { italic = true },
@@ -13,8 +12,6 @@ return {
         },
         highlights = {},
       })
-      -- load the colorscheme here
-      vim.cmd([[colorscheme nightly]])
     end,
   },
 }

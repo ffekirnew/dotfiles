@@ -40,5 +40,3 @@ keymap.set("n", "<leader>ln", "<cmd>set number<CR>", { desc = "Show line numbers
 keymap.set("n", "<leader>lr", "<cmd>set relativenumber<CR>", { desc = "Show relative line numbers" })
 
 -- Specific Plugin Keymaps ---
-keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Toggle LazyGit" }) -- toggle lazy git
-keymap.set("n", "<leader>t", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" }) -- toggle the terminal

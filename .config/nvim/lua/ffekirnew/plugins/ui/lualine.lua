@@ -7,10 +7,15 @@ return {
 
     -- configure lualine with modified theme
     lualine.setup({
-      theme = "nightly",
+      theme = "nighfly",
+      globalstatus = false,
       options = {
         section_separators = "",
         component_separators = "",
+        disabled_filetypes = {
+          "NvimTree",
+          "NVimTree",
+        },
       },
       sections = {
         lualine_x = {

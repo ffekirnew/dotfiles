@@ -119,8 +119,20 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure Angular server
-    lspconfig["angularls"].setup({
+    -- configure Java server
+    lspconfig["jdtls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure Java server
+    lspconfig["clangd"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure Java server
+    lspconfig["astro"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

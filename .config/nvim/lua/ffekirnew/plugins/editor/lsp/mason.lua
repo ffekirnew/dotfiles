@@ -35,8 +35,10 @@ return {
         "pyright", -- Python
         "gopls", -- Go
         "csharp_ls", -- C#
-        "angularls", -- Angular
         "vtsls", -- TypeScript & JavaScript
+        "jdtls", -- Java
+        "clangd", -- C
+        "astro", -- astro
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -44,16 +46,18 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
+        "prettierd", -- prettier formatter
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
         "ruff", -- python linter & formatter
         "mypy", -- python linter
-        "eslint_d", -- js linter
+        "eslint", -- js linter
         "gofumpt", -- go formatter
         "goimports", -- go formatter
         "csharpier", -- C# formatter
+        "cpplint", -- C/C++ Linter
+        "clang-format", -- C/C++ formatter
       },
     })
   end,
