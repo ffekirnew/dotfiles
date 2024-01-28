@@ -29,7 +29,7 @@ return {
       },
       disable_netrw = true,
       filesystem_watchers = {
-        enable = true,
+        enable = false,
       },
       git = {
         enable = true,
