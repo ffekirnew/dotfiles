@@ -10,6 +10,7 @@ return {
     },
     config = function()
       -- import nvim-treesitter plugin
+      -- local treesitter = require("nvim-treesitter.configs")
       local treesitter = require("ts_context_commentstring")
 
       -- configure treesitter

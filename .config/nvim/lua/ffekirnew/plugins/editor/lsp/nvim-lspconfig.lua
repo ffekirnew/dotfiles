@@ -74,6 +74,7 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "html", "jsp" },
     })
 
     -- configure typescript server with plugin
@@ -92,13 +93,14 @@ return {
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "html", "jsp", "tsx", "jsx" },
     })
 
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "jsp" },
     })
 
     -- configure python server
@@ -123,16 +125,23 @@ return {
     lspconfig["jdtls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = { "java", "jsp" },
     })
 
-    -- configure Java server
+    -- configure C server
     lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure Java server
-    lspconfig["astro"].setup({
+    -- configure docker server
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure docker compose server
+    lspconfig["docker_compose_language_service"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

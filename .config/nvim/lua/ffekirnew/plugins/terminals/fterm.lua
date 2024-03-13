@@ -2,8 +2,6 @@ return {
   "numToStr/FTerm.nvim",
   lazy = false,
   config = function()
-    local keymap = vim.keymap -- for conciseness
-
     require("FTerm").setup({
       border = "single",
       dimensions = {
@@ -12,6 +10,7 @@ return {
       },
     })
 
+    local keymap = vim.keymap -- for conciseness
     keymap.set("n", "<leader>tf", "<cmd>lua require('FTerm').toggle()<cr>", { desc = "Open a floating terminal" })
   end,
 }

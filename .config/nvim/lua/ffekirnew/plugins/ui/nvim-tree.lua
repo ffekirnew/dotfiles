@@ -86,7 +86,7 @@ return {
         update_root = false,
       },
       view = {
-        side = "left",
+        side = "right",
         adaptive_size = true,
         width = {
           min = 35,
