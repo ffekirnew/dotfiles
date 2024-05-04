@@ -22,6 +22,7 @@ return {
         go = { "goimports", "gofumpt" },
         c_sharp = { "csharpier" },
       },
+
       format_on_save = {
         lsp_fallback = true,
         async = true,
