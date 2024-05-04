@@ -29,17 +29,16 @@ return {
       ensure_installed = {
         "html", -- Html
         "cssls", -- Css & Scss
+        "vtsls", -- TypeScript & JavaScript
         "tailwindcss", -- Tailwind Css
-        "lua_ls", -- Lua
         "emmet_ls", -- Emmet
         "pyright", -- Python
         "gopls", -- Go
         "csharp_ls", -- C#
-        "vtsls", -- TypeScript & JavaScript
-        "jdtls", -- Java
-        "clangd", -- C
         "dockerls", -- Docker
         "docker_compose_language_service", -- Docker Compose
+        "lua_ls", -- Lua
+        "prismals", -- Prisma
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -57,8 +56,6 @@ return {
         "gofumpt", -- go formatter
         "goimports", -- go formatter
         "csharpier", -- C# formatter
-        "cpplint", -- C/C++ Linter
-        "clang-format", -- C/C++ formatter
       },
     })
   end,

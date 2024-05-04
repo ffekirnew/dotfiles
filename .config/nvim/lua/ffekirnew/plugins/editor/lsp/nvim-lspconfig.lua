@@ -77,14 +77,14 @@ return {
       filetypes = { "html", "jsp" },
     })
 
-    -- configure typescript server with plugin
-    lspconfig["vtsls"].setup({
+    -- configure css server
+    lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure css server
-    lspconfig["cssls"].setup({
+    -- configure typescript server with plugin
+    lspconfig["vtsls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -121,21 +121,14 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure Java server
-    lspconfig["jdtls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "java", "jsp" },
-    })
-
-    -- configure C server
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
     -- configure docker server
     lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure prisma language server
+    lspconfig["prismals"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
