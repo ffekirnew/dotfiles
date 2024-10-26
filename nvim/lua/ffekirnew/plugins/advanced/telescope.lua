@@ -13,6 +13,11 @@ return {
     telescope.setup({
       defaults = {
         layout_strategy = "vertical",
+        layout_config = {
+          width = 0.9,
+          height = 0.9,
+          preview_height = 0.65,
+        },
         path_display = { "truncate " },
         mappings = {
           i = {
