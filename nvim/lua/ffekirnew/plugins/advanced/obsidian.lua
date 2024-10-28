@@ -6,6 +6,7 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
   },
+
   config = function()
     local obsidian = require("obsidian")
 
@@ -70,11 +71,20 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "Create a new obsidian note" })
+    keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>", { desc = "Obsidian format" })
     keymap.set(
       "n",
-      "<leader>ont",
-      "<cmd>ObsidianNewFromTemplate<cr>",
-      { desc = "Create a new obsidian note from template" }
+      "<leader>ot",
+      ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>",
+      { desc = "Convert note to template and remove leading white space" }
     )
+    --
+    keymap.set(
+      "n",
+      "<leader>ok",
+      ":!mv '%:p' /Users/ffekirnew/Documents/personal/zettelkasten<cr>:bd<cr>",
+      { desc = "move file in current buffer to zettelkasten folder" }
+    )
+    keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>", { desc = "delete file in current buffer" })
   end,
 }

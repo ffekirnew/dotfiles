@@ -15,7 +15,6 @@ return {
         html = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
-        markdown = { "prettierd" },
         graphql = { "prettierd" },
         lua = { "stylua" },
         python = { "isort", "black" },
@@ -33,7 +32,9 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+    -- set keymaps
+    local keymap = vim.keymap -- for conciseness
+    keymap.set({ "n", "v" }, "<leader>fm", function()
       conform.format({
         lsp_fallback = true,
         async = true,

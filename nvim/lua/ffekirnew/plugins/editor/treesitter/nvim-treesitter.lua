@@ -10,11 +10,11 @@ return {
     },
     config = function()
       -- import nvim-treesitter plugin
-      -- local treesitter = require("nvim-treesitter.configs")
-      local treesitter = require("ts_context_commentstring")
+      local ts = require("ts_context_commentstring")
+      -- local treesitter_configs = require("nvim-treesitter.configs")
 
       -- configure treesitter
-      treesitter.setup({ -- enable syntax highlighting
+      ts.setup({ -- enable syntax highlighting
         highlight = {
           enable = true,
         },

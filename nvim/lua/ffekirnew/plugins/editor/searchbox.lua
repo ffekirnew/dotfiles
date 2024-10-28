@@ -37,6 +37,6 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>hh", "<cmd>lua require('searchbox').replace()<CR>", { desc = "Open find and replace" })
-    keymap.set("n", "<leader>hs", "<cmd>lua require('searchbox').match_all()<CR>", { desc = "Open find and replace" })
+    keymap.set("n", "<leader>hs", "<cmd>lua require('searchbox').match_all()<CR>", { desc = "Search in file" })
   end,
 }
