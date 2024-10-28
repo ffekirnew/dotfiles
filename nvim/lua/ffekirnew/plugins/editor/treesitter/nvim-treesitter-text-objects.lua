@@ -6,7 +6,7 @@ return {
     local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
     ts_configs.setup({
-      highlights = {
+      highlight = {
         enable = true,
       },
 
