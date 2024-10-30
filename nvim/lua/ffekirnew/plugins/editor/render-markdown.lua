@@ -15,7 +15,7 @@ return {
         language_pad = 0,
         language_name = true,
         disable_background = { "diff" },
-        width = "block",
+        width = "full",
         left_margin = 0,
         left_pad = 0,
         right_pad = 0,

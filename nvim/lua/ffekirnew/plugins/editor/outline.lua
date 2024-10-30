@@ -6,6 +6,6 @@ return {
     })
 
     local keymap = vim.keymap -- for conciseness
-    keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+    keymap.set("n", "<leader>out", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
   end,
 }

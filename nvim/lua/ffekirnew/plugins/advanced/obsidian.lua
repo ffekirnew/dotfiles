@@ -20,12 +20,31 @@ return {
       notes_subdir = "inbox",
       new_notes_location = "notes_subdir",
 
-      disable_frontmatter = true,
+      disable_frontmatter = false,
       templates = {
         subdir = "templates",
         date_format = "%Y-%m-%d",
         time_format = "%H:%M:%S",
       },
+
+      note_frontmatter_func = function(note)
+        local out = {
+          date = note.date or os.date(),
+          tags = note.tags or {},
+          hubs = note.hubs or {},
+          urls = note.urls or {},
+        }
+
+        -- `note.metadata` contains any manually added fields in the frontmatter.
+        -- So here we just make sure those fields are kept in the frontmatter.
+        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+          for k, v in pairs(note.metadata) do
+            out[k] = v
+          end
+        end
+
+        return out
+      end,
 
       note_id_func = function(title)
         local suffix = ""
@@ -70,15 +89,12 @@ return {
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "Create a new obsidian note" })
-    keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>", { desc = "Obsidian format" })
     keymap.set(
       "n",
-      "<leader>ot",
-      ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>",
-      { desc = "Convert note to template and remove leading white space" }
+      "<leader>on",
+      "<cmd>:tabnew New Note | ObsidianNew<cr>",
+      { desc = "Create a new obsidian note in another tab" }
     )
-    --
     keymap.set(
       "n",
       "<leader>ok",
@@ -86,5 +102,17 @@ return {
       { desc = "move file in current buffer to zettelkasten folder" }
     )
     keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>", { desc = "delete file in current buffer" })
+    keymap.set(
+      "n",
+      "<leader>o",
+      ':Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
+      { desc = "Find and open notes in the same tab" }
+    )
+    keymap.set(
+      "n",
+      "<leader>os",
+      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
+      { desc = "Find and open notes in a new tab" }
+    )
   end,
 }

@@ -21,7 +21,6 @@ require("lazy").setup({
   { import = "ffekirnew.plugins.editor.treesitter" },
   { import = "ffekirnew.plugins.git" },
   { import = "ffekirnew.plugins.terminals" },
-  { import = "ffekirnew.plugins.theme" },
   { import = "ffekirnew.plugins.ui" },
 }, {
   install = {
