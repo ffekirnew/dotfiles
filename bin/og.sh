@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Directory containing markdown files
-VAULT_DIR="/Users/ffekirnew/Documents/personal"
+VAULT_DIR="/Users/ffekirnew/library/Mobile Documents/iCloud~md~obsidian/Documents/ffekirnew"
 SOURCE_DIR="zettelkasten"
 DEST_DIR="notes"
 

@@ -9,7 +9,6 @@ return {
 
   config = function()
     local obsidian = require("obsidian")
-
     obsidian.setup({
       ui = {
         enable = false,
@@ -17,7 +16,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "/Users/ffekirnew/Documents/personal",
+          path = "/Users/ffekirnew/library/Mobile Documents/iCloud~md~obsidian/Documents/ffekirnew",
         },
       },
       notes_subdir = "inbox",
@@ -95,13 +94,13 @@ return {
     keymap.set(
       "n",
       "<leader>os",
-      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
+      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ffekirnew"}<cr>',
       { desc = "Find and open notes in a new tab" }
     )
     keymap.set(
       "n",
       "<leader>ok",
-      ":!mv '%:p' /Users/ffekirnew/Documents/personal/zettelkasten<cr>:bd<cr>",
+      ":!mv '%:p' /Users/ffekirnew/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ffekirnew/zettelkasten<cr>:bd<cr>",
       { desc = "move file in current buffer to zettelkasten folder" }
     )
     keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>", { desc = "delete file in current buffer" })
