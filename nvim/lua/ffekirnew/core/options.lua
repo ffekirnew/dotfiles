@@ -22,7 +22,7 @@ opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
 
--- turn on termguicolors for nightfly colorscheme to work
+-- turn on termguicolors
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
@@ -44,3 +44,6 @@ opt.swapfile = false
 
 -- Hide tilde for empty lines
 opt.fillchars = { eob = " " }
+
+-- Set conceallevel to 2 so that markdown lists look nice
+opt.conceallevel = 2

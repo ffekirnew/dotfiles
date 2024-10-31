@@ -22,10 +22,10 @@ require("lazy").setup({
   { import = "ffekirnew.plugins.git" },
   { import = "ffekirnew.plugins.terminals" },
   { import = "ffekirnew.plugins.ui" },
+
+  -- Set colorscheme here
+  { import = "ffekirnew.plugins.ui.colorschemes.nightfox" },
 }, {
-  install = {
-    colorscheme = { "nightly" },
-  },
   checker = {
     enabled = true,
     notify = false,

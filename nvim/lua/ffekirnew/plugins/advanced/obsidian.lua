@@ -11,6 +11,9 @@ return {
     local obsidian = require("obsidian")
 
     obsidian.setup({
+      ui = {
+        enable = false,
+      },
       workspaces = {
         {
           name = "personal",
@@ -79,16 +82,10 @@ return {
         nvim_cmp = true,
         min_chars = 2,
       },
-      ui = {
-        -- Disable some things below here because I set these manually for all Markdown files using treesitter
-        checkboxes = {},
-        bullets = {},
-      },
     })
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
-
     keymap.set(
       "n",
       "<leader>on",
@@ -97,22 +94,16 @@ return {
     )
     keymap.set(
       "n",
+      "<leader>os",
+      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
+      { desc = "Find and open notes in a new tab" }
+    )
+    keymap.set(
+      "n",
       "<leader>ok",
       ":!mv '%:p' /Users/ffekirnew/Documents/personal/zettelkasten<cr>:bd<cr>",
       { desc = "move file in current buffer to zettelkasten folder" }
     )
     keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>", { desc = "delete file in current buffer" })
-    keymap.set(
-      "n",
-      "<leader>o",
-      ':Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
-      { desc = "Find and open notes in the same tab" }
-    )
-    keymap.set(
-      "n",
-      "<leader>os",
-      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/Documents/personal"}<cr>',
-      { desc = "Find and open notes in a new tab" }
-    )
   end,
 }

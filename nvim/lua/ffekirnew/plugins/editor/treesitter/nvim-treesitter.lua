@@ -14,11 +14,7 @@ return {
       -- local treesitter_configs = require("nvim-treesitter.configs")
 
       -- configure treesitter
-      ts.setup({ -- enable syntax highlighting
-        highlight = {
-          enable = true,
-        },
-
+      ts.setup({
         -- enable indentation
         indent = { enable = true },
 

@@ -1,26 +1,25 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+  lazy = true,
   ft = { "markdown" },
   config = function()
-    local render_markdown = require("render-markdown")
-
-    render_markdown.setup({
-      enabled = true,
+    require("render-markdown").setup({
       code = {
         enabled = true,
-        sign = true,
-        style = "normal",
-        position = "right",
+        -- Turn on / off any sign column related rendering
+        sign = false,
+        style = "full", -- [none, normal, language, full]
+        position = "left", -- [left, right]
         language_pad = 0,
         language_name = true,
         disable_background = { "diff" },
-        width = "full",
+        width = "full", -- [block, full]
         left_margin = 0,
         left_pad = 0,
         right_pad = 0,
-        min_width = 0,
-        border = "thin",
+        min_width = 0.5,
+        border = "thin", -- [thin, thick]
         above = "▄",
         below = "▀",
         highlight = "RenderMarkdownCode",

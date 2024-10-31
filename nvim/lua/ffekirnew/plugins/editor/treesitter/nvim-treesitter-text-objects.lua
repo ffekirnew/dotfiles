@@ -7,7 +7,7 @@ return {
 
     ts_configs.setup({
       highlight = {
-        enable = false,
+        enable = true,
       },
 
       textobjects = {
