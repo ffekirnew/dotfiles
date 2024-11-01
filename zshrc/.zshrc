@@ -144,3 +144,23 @@ export PATH="$PATH:/Users/ffekirnew/Applications/Fleet.app/Contents/app/bin/"
 # Aliases for default apps
 alias cat='bat'
 alias ls='eza --color=always --long --git --no-filesize --no-permissions --no-user --no-time' 
+
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Export path to .net tools
+export PATH="$PATH:/Users/ffekirnew/.dotnet/tools"
+
+# Obsidian
+alias oo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew'
+alias or='nvim $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew/inbox/*.md'
+
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Add my scripts to path
+export PATH="$PATH:/Users/ffekirnew/bin"
+
