@@ -29,6 +29,13 @@ return {
         time_format = "%H:%M:%S",
       },
 
+      daily_notes = {
+        folder = "notes/daily-notes",
+        default_tags = { "daily-notes" },
+        -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+        template = "daily-note.md",
+      },
+
       note_frontmatter_func = function(note)
         local out = {
           date = note.date or os.date(),
@@ -89,7 +96,13 @@ return {
       "n",
       "<leader>on",
       "<cmd>:tabnew New Note | ObsidianNew<cr>",
-      { desc = "Create a new obsidian note in another tab" }
+      { desc = "Create a new obsidian note in a new tab" }
+    )
+    keymap.set(
+      "n",
+      "<leader>od",
+      "<cmd>:tabnew New Daily Note | ObsidianToday<cr>",
+      { desc = "Create/open today's note in a new tab" }
     )
     keymap.set(
       "n",
@@ -101,8 +114,8 @@ return {
       "n",
       "<leader>ok",
       ":!mv '%:p' /Users/ffekirnew/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ffekirnew/zettelkasten<cr>:bd<cr>",
-      { desc = "move file in current buffer to zettelkasten folder" }
+      { desc = "Move current note into the zettelkasten folder" }
     )
-    keymap.set("n", "<leader>odd", ":!rm '%:p'<cr>:bd<cr>", { desc = "delete file in current buffer" })
+    keymap.set("n", "<leader>ox", ":!rm '%:p'<cr>:bd<cr>", { desc = "Delete current obsidian note" })
   end,
 }
