@@ -3,11 +3,8 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
----------------------
--- General Keymaps -------------------
-
 -- use jk to exit insert mode
-keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with j" })
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
@@ -38,5 +35,3 @@ keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit file" })
 -- Keymaps for showing line numbers & relative line numbers
 keymap.set("n", "<leader>ln", "<cmd>set number<CR>", { desc = "Show line numbers" })
 keymap.set("n", "<leader>lr", "<cmd>set relativenumber<CR>", { desc = "Show relative line numbers" })
-
--- Specific Plugin Keymaps ---
