@@ -7,8 +7,42 @@ return {
   },
   config = function()
     local keymap = vim.keymap -- for conciseness
+    local WIDTH = 60
+    local HEIGHT = "auto"
+    local STARTING_ROW = 5
+    local STARTING_COL = "50%"
 
     require("noice").setup({
+      views = {
+        cmdline_popup = {
+          position = {
+            row = STARTING_ROW,
+            col = STARTING_COL,
+          },
+          size = {
+            width = WIDTH,
+            height = HEIGHT,
+          },
+        },
+        popupmenu = {
+          relative = "editor",
+          position = {
+            row = STARTING_ROW + 10,
+            col = STARTING_COL,
+          },
+          size = {
+            width = WIDTH,
+            height = 10,
+          },
+          border = {
+            style = "rounded",
+            padding = { 0, 1 },
+          },
+          win_options = {
+            winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+          },
+        },
+      },
       lsp = {
         progress = {
           enabled = false,

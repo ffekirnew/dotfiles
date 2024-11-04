@@ -17,8 +17,8 @@ return {
       popup = {
         relative = "win",
         position = {
-          row = "5%",
-          col = "95%",
+          row = "4%",
+          col = "100%",
         },
         size = 25,
         border = {

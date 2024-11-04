@@ -48,5 +48,5 @@ opt.fillchars = { eob = " " }
 -- Set conceallevel to 2 so that markdown lists look nice
 opt.conceallevel = 2
 
--- Set tablien to show tabs even when only one tab is open
-opt.showtabline = 2
+-- Set tablien to show tabs
+opt.showtabline = 1 --[0 - for never, 1 - for when multiple tabs, 2 - always]

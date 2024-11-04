@@ -23,7 +23,7 @@ require("lazy").setup({
   { import = "ffekirnew.plugins.terminals" },
   { import = "ffekirnew.plugins.ui" },
 
-  -- Set colorscheme here
+  -- Select and set colorscheme from the colorschemes directory here
   { import = "ffekirnew.plugins.ui.colorschemes.nightfox" },
 }, {
   checker = {
