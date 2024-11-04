@@ -153,7 +153,7 @@ export PATH="$PATH:/Users/ffekirnew/.dotnet/tools"
 
 # Obsidian
 alias oo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew'
-alias or='nvim $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew/inbox/*.md'
+alias or='nvim -p $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew/inbox/*.md'
 alias start='nvim -c ":ObsidianToday"'
 
 
