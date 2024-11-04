@@ -4,7 +4,7 @@ local opt = vim.opt -- for conciseness
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
--- tabs & indentation
+-- indentation & tabs
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
@@ -23,7 +23,7 @@ opt.cursorline = true -- highlight the current cursor line
 -- appearance
 
 -- turn on termguicolors
--- (have to use iterm2 or any other true color terminal)
+-- (have to use alacritty, iterm2, or any other true color terminal)
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
@@ -47,3 +47,6 @@ opt.fillchars = { eob = " " }
 
 -- Set conceallevel to 2 so that markdown lists look nice
 opt.conceallevel = 2
+
+-- Set tablien to show tabs even when only one tab is open
+opt.showtabline = 2
