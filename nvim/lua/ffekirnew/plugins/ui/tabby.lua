@@ -1,6 +1,7 @@
 return {
   "nanozuki/tabby.nvim",
-  -- event = 'VimEnter', -- if you want lazy load, see below
+  lazy = true,
+  event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
 
   config = function()
@@ -18,9 +19,21 @@ return {
       line = function(line)
         return {
           {
-            { "  ffekirnew ", hl = theme.head },
+            { "  ", hl = theme.head },
             line.sep("", theme.head, theme.fill),
           },
+          line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+            local hl = theme.win
+            return {
+              line.sep("", hl, theme.fill),
+              "",
+              win.buf_name(),
+              line.sep("", hl, theme.fill),
+              hl = hl,
+              margin = " ",
+            }
+          end),
+          line.spacer(),
           line.tabs().foreach(function(tab)
             local hl = tab.is_current() and theme.current_tab or theme.tab
             return {
@@ -30,17 +43,6 @@ return {
               tab.close_btn(""),
               line.sep("", hl, theme.fill),
               hl = hl,
-              margin = " ",
-            }
-          end),
-          line.spacer(),
-          line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-            return {
-              line.sep("", theme.win, theme.fill),
-              "",
-              win.buf_name(),
-              " ",
-              hl = theme.win,
               margin = " ",
             }
           end),
