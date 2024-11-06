@@ -5,12 +5,18 @@ return {
     require("FTerm").setup({
       border = "single",
       dimensions = {
-        height = 0.8,
-        width = 0.8,
+        height = 0.95,
+        width = 0.9,
       },
     })
 
     local keymap = vim.keymap -- for conciseness
-    keymap.set("n", "<leader>tf", "<cmd>lua require('FTerm').toggle()<cr>", { desc = "Open a floating terminal" })
+    keymap.set("n", "<leader>tf", "<cmd>lua require('FTerm').toggle()<cr>", { desc = "Toggle a floating terminal" })
+    keymap.set(
+      "t",
+      "<leader>tf",
+      '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>',
+      { desc = "Toggle a floating terminal" }
+    )
   end,
 }
