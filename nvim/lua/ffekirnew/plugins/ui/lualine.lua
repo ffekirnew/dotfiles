@@ -5,6 +5,7 @@ return {
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
     require("lualine").setup({
+      theme = "auto",
       globalstatus = false,
       options = {
         section_separators = "",
@@ -26,7 +27,23 @@ return {
           { "filetype" },
           {},
         },
-        lualine_y = {},
+        lualine_y = {
+          {
+            function()
+              local ok, pomo = pcall(require, "pomo")
+              if not ok then
+                return ""
+              end
+
+              local timer = pomo.get_first_to_finish()
+              if timer == nil then
+                return ""
+              end
+
+              return "󰄉 " .. tostring(timer)
+            end,
+          },
+        },
         lualine_z = { "location" },
       },
       inactive_sections = {
