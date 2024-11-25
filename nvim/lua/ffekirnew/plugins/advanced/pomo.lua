@@ -20,10 +20,10 @@ return {
 
         deepwork = {
           { name = "Work", duration = "30m" },
-          { name = "Short Break", duration = "5m" },
-          { name = "Work", duration = "25m" },
-          { name = "Short Break", duration = "5m" },
-          { name = "Work", duration = "25m" },
+          { name = "Short Break", duration = "6m" },
+          { name = "Work", duration = "30m" },
+          { name = "Short Break", duration = "6m" },
+          { name = "Work", duration = "30m" },
           { name = "Long Break", duration = "15m" },
         },
       },
@@ -32,8 +32,7 @@ return {
     -- Keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>pt", "<cmd>TimerSession pomodoro<cr>", { desc = "Start light work pomodoro" })
-    keymap.set("n", "<leader>pt", "<cmd>TimerSession deepwork<cr>", { desc = "Start deep work pomodoro" })
+    keymap.set("n", "<leader>pt", "<cmd>TimerSession deepwork<cr>", { desc = "Start deep work pomodoro session" })
     keymap.set("n", "<leader>ph", "<cmd>TimerHide<cr>", { desc = "Hide Timer" })
   end,
 }
