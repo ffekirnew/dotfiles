@@ -32,7 +32,9 @@ return {
     -- Keymaps
     local keymap = vim.keymap -- for conciseness
 
-    keymap.set("n", "<leader>pt", "<cmd>TimerSession deepwork<cr>", { desc = "Start deep work pomodoro session" })
-    keymap.set("n", "<leader>ph", "<cmd>TimerHide<cr>", { desc = "Hide Timer" })
+    keymap.set("n", "<leader>ps", "<cmd>TimerSession deepwork<cr>", { desc = "Pomo: Start deep work pomodoro session" })
+    keymap.set("n", "<leader>pp", "<cmd>TimerPause<cr>", { desc = "Pomo: pause timer" })
+    keymap.set("n", "<leader>pr", "<cmd>TimerResume<cr>", { desc = "Pomo: resume timer" })
+    keymap.set("n", "<leader>pd", "<cmd>TimerHide<cr>", { desc = "Pomo: hide timer" })
   end,
 }

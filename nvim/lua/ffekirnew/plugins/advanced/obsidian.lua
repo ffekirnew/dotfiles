@@ -70,7 +70,7 @@ return {
 
       mappings = {
         -- overrides the 'gf' mapping to work on markdown/wiki links within your vault
-        ["gf"] = {
+        ["<leader>of"] = {
           action = function()
             return require("obsidian").util.gf_passthrough()
           end,
