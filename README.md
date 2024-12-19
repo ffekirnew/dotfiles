@@ -1,8 +1,15 @@
 # dotfiles
 My dotfiles.
 
-## Usage
+## Contents
+- [X] [Alacritty](./alacritty)
+- [X] [Bin](./bin)
+- [X] [Neovim](./nvim)
+- [X] [Tmux](./tmux)
+- [X] [Zellij](./zellij)
+- [X] [Zsh](./zshrc)
 
+## Usage
 1. Clone the repository to your home directory.
 ```bash
 cd ~
