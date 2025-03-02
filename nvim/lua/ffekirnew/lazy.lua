@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "ffekirnew.plugins" },
+  { import = "ffekirnew.plugins.ai" },
   { import = "ffekirnew.plugins.advanced" },
   { import = "ffekirnew.plugins.editor" },
   { import = "ffekirnew.plugins.editor.lsp" },

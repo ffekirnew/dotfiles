@@ -42,6 +42,7 @@ return {
           tags = note.tags or {},
           hubs = note.hubs or {},
           urls = note.urls or {},
+          status = note.note_status or "active",
         }
 
         -- `note.metadata` contains any manually added fields in the frontmatter.
@@ -97,6 +98,12 @@ return {
       "<leader>on",
       "<cmd>:tabnew New Note | ObsidianNew<cr>",
       { desc = "Create a new obsidian note in a new tab" }
+    )
+    keymap.set(
+      "n",
+      "<leader>ot",
+      "<cmd>:tabnew New Note | ObsidianNewFromTemplate<cr>",
+      { desc = "Create a new obsidian note from template in a new tab" }
     )
     keymap.set(
       "n",

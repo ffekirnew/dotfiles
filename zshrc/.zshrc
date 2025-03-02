@@ -138,18 +138,11 @@ _fzf_comprun() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Export the path to Jetbrains Fleet
-export PATH="$PATH:/Users/ffekirnew/Applications/Fleet.app/Contents/app/bin/"
-
 # Aliases for default apps
 alias cat='bat'
 alias ls='eza --color=always --long --git --no-filesize --no-permissions --no-user --no-time' 
 
-
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Export path to .net tools
-export PATH="$PATH:/Users/ffekirnew/.dotnet/tools"
 
 # Obsidian
 alias oo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/ffekirnew'

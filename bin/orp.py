@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import os
 import re
 from argparse import ArgumentParser
@@ -28,7 +29,7 @@ Args = NamedTuple(
 
 
 def main() -> None:
-    for file_name, file_path in _get_files():
+    for file_name, file_path in _filter_files():
         try:
             with open(file_path, "r") as f:
                 file_details = _process_file(f.readlines())
@@ -45,22 +46,7 @@ def main() -> None:
             print(f"Error opening {file_path}: {e}")
 
 
-def _process_file(content: list[str]) -> FileDetails:
-    unchecked_tasks = [
-        _clean_line(line) for line in content if _clean_line(line).startswith("- [ ]")
-    ]
-
-    return FileDetails(
-        unchecked_tasks=[
-            task for task in unchecked_tasks if not task.endswith("- [ ]")
-        ],
-        unchecked_empty_tasks=len(
-            [task for task in unchecked_tasks if task.endswith("- [ ]")]
-        ),
-    )
-
-
-def _get_files() -> list[tuple[str, str]]:
+def _filter_files() -> list[tuple[str, str]]:
     args = _parse_args()
     filtered_files: list[tuple[str, str]] = []
 
@@ -82,10 +68,25 @@ def _get_files() -> list[tuple[str, str]]:
 
     filtered_files.sort()
     if args.daily_note:
-        print("📅Processing the latest daily note.")
+        print("📅Processing the latest daily note(s).")
         filtered_files = filtered_files[-args.daily_note :]
 
     return filtered_files
+
+
+def _process_file(content: list[str]) -> FileDetails:
+    unchecked_tasks = [
+        _clean_line(line) for line in content if _clean_line(line).startswith("- [ ]")
+    ]
+
+    return FileDetails(
+        unchecked_tasks=[
+            task for task in unchecked_tasks if not task.endswith("- [ ]")
+        ],
+        unchecked_empty_tasks=len(
+            [task for task in unchecked_tasks if task.endswith("- [ ]")]
+        ),
+    )
 
 
 def _parse_args() -> Args:
