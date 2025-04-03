@@ -46,6 +46,7 @@ return {
 
       avante.setup({
         provider = "copilot",
+        wrap = true,
         auto_suggestions_provider = "copilot",
         behaviour = {
           auto_suggestions = true,
@@ -57,28 +58,36 @@ return {
           },
         },
         windows = {
-          width = 25, -- default % based on available width
+          width = 30, -- default % based on available width
+          position = "left",
           sidebar_header = {
-            enabled = true, -- falst, true to enable/disable the header
+            enabled = true, -- false, true to enable/disable the header
             align = "left", -- left, center, right for title
             rounded = false,
           },
           input = {
             prefix = "> ",
-            height = 4, -- Height of the input window in vertical layout
+            height = 6, -- Height of the input window in vertical layout
           },
           ask = {
             floating = true,
+            start_insert = true,
           },
         },
       })
 
       keymap.set("n", "<leader>aa", "<cmd>AvanteAsk<cr>", { desc = "Initiate an Avante ask session" })
       keymap.set("n", "<leader>ae", "<cmd>AvanteEdit<cr>", { desc = "Edit selected code blocks with Avante" })
-      keymap.set("n", "<leader>at", "<cmd>AvanteToggle<cr>", { desc = "Toggle the Avante interface" })
-      keymap.set("i", "<leader>at", "<cmd>AvanteToggle<cr>", { desc = "Toggle the Avante interface" })
-      keymap.set("n", "<leader>ac", "<cmd>AvanteClear<cr>", { desc = "Clear the current Avante session" })
+      keymap.set({ "n", "i" }, "<leader>at", "<cmd>AvanteToggle<cr>", { desc = "Toggle the Avante interface" })
+      keymap.set("n", "<leader>ar", "<cmd>AvanteRefresh<cr>", { desc = "Refresh the Avante session" })
       keymap.set("n", "<leader>as", "<cmd>AvanteShowSuggestions<cr>", { desc = "Display Avante suggestions" })
+      keymap.set("n", "<leader>ac", "<cmd>AvanteClear<cr>", { desc = "Clear the current Avante session" })
+      keymap.set("n", "<leader>af", "<cmd>AvanteClear<cr>", { desc = "Add the current file to Avante context" })
+
+      local avante_complete_code = "Complete the following codes written in " .. vim.bo.filetype
+      keymap.set("n", "<leader>ac", function()
+        require("avante.api").ask({ question = avante_complete_code })
+      end, { desc = "Complete Code(ask)" })
     end,
   },
 }

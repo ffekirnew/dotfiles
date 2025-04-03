@@ -28,6 +28,9 @@ return {
       opts.desc = "Show LSP definitions"
       keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
+      opts.desc = "Show LSP definitions"
+      keymap.set("n", "gtd", "<cmd>:tabnew Definition | Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+
       opts.desc = "Show LSP implementations"
       keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
@@ -111,12 +114,6 @@ return {
 
     -- configure go server
     lspconfig["gopls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure c_sharp server
-    lspconfig["csharp_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

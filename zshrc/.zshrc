@@ -158,3 +158,6 @@ export NVM_DIR="$HOME/.nvm"
 # Add my scripts to path
 export PATH="$PATH:/Users/ffekirnew/bin"
 
+
+# Added by Windsurf
+export PATH="/Users/ffekirnew/.codeium/windsurf/bin:$PATH"

@@ -11,6 +11,9 @@ return {
         auto_trigger = true,
         keymap = {
           accept = "<C-l>",
+          next = "<C-]>",
+          prev = "<C-[>",
+          discard = "<C-k>",
         },
       },
       panel = {
@@ -23,22 +26,10 @@ return {
 
     local keymap = vim.keymap -- for conciseness
     keymap.set(
-      "n",
+      "i",
       "<leader>cp",
       "<cmd>lua require('copilot.suggestion').next()<cr>",
       { desc = "Show the next copilot suggestion" }
-    )
-    keymap.set(
-      "n",
-      "<leader>cpw",
-      "<cmd>lua require('copilot.suggestion').accept_word()<cr>",
-      { desc = "Accepts the word suggested by copilot" }
-    )
-    keymap.set(
-      "n",
-      "<leader>cpl",
-      "<cmd>lua require('copilot.suggestion').accept_line()<cr>",
-      { desc = "Accepts the line suggested by copilot" }
     )
   end,
 }

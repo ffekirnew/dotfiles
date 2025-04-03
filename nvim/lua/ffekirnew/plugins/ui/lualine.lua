@@ -5,7 +5,7 @@ return {
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
     require("lualine").setup({
-      theme = "auto",
+      -- theme = "auto",
       globalstatus = false,
       options = {
         section_separators = "",
@@ -13,6 +13,9 @@ return {
         disabled_filetypes = {
           "NvimTree",
           "NVimTree",
+          "Avante",
+          "AvanteInput",
+          "AvanteSelectedFiles",
         },
       },
       sections = {
@@ -49,7 +52,7 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},

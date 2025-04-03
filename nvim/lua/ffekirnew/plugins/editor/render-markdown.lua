@@ -2,7 +2,7 @@ return {
   "MeanderingProgrammer/render-markdown.nvim",
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
   lazy = true,
-  ft = { "markdown" },
+  ft = { "markdown", "Avante" },
   config = function()
     require("render-markdown").setup({
       code = {

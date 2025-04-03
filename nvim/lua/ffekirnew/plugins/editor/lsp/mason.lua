@@ -32,9 +32,7 @@ return {
         "vtsls", -- TypeScript & JavaScript
         "tailwindcss", -- Tailwind Css
         "emmet_ls", -- Emmet
-        "pyright", -- Python
-        "gopls", -- Go
-        "csharp_ls", -- C#
+        "pylsp", -- Python
         "dockerls", -- Docker
         "docker_compose_language_service", -- Docker Compose
         "lua_ls", -- Lua
@@ -46,16 +44,16 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettierd", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "ruff", -- python linter & formatter
-        "mypy", -- python linter
-        "eslint", -- js linter
-        "gofumpt", -- go formatter
-        "goimports", -- go formatter
-        "csharpier", -- C# formatter
+        -- JS, TS, CSS, HTML
+        "prettierd",
+        "stylua",
+        "eslint",
+        -- Python
+        "mypy",
+        "isort",
+        "black",
+        "autopep8",
+        "autoflake",
       },
     })
   end,

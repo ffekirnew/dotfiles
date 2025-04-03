@@ -17,9 +17,7 @@ return {
         yaml = { "prettierd" },
         graphql = { "prettierd" },
         lua = { "stylua" },
-        python = { "isort", "black" },
-        go = { "goimports", "gofumpt" },
-        c_sharp = { "csharpier" },
+        python = { "black", "isort", "autopep8", "autoflake" },
       },
 
       format_on_save = {
