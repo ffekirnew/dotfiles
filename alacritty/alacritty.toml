@@ -4,8 +4,8 @@
 TERM = "xterm-256color"
 
 [window]
-padding.x = 4
-padding.y = 5
+padding.x = 2
+padding.y = 0
 decorations = "Buttonless"
 opacity = 0.9
 blur = true
