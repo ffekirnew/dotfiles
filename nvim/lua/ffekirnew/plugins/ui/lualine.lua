@@ -19,35 +19,22 @@ return {
         },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch" },
-        lualine_c = { "filename", "diagnostics" },
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          "filename",
+          "diagnostics",
+        },
         lualine_x = {
           {
             lazy_status.updates,
             cond = lazy_status.has_updates,
           },
-          { "filetype" },
+          {}, --{ "filetype" },
           {},
         },
-        lualine_y = {
-          {
-            function()
-              local ok, pomo = pcall(require, "pomo")
-              if not ok then
-                return ""
-              end
-
-              local timer = pomo.get_first_to_finish()
-              if timer == nil then
-                return ""
-              end
-
-              return "󰄉 " .. tostring(timer)
-            end,
-          },
-        },
-        lualine_z = { "location" },
+        lualine_y = {},
+        lualine_z = { "branch" }, -- { "location" },
       },
       inactive_sections = {
         lualine_a = {},
