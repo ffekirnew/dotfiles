@@ -158,6 +158,11 @@ export NVM_DIR="$HOME/.nvm"
 # Add my scripts to path
 export PATH="$PATH:/Users/ffekirnew/bin"
 
-
 # Added by Windsurf
 export PATH="/Users/ffekirnew/.codeium/windsurf/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ffekirnew/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ffekirnew/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ffekirnew/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ffekirnew/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
