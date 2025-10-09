@@ -37,6 +37,7 @@ return {
         "c_sharp",
         "go",
         "make",
+        "cpp",
       },
 
       incremental_selection = {

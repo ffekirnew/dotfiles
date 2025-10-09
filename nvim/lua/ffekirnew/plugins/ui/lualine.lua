@@ -19,7 +19,7 @@ return {
         },
       },
       sections = {
-        lualine_a = {},
+        lualine_a = { "branch" },
         lualine_b = {},
         lualine_c = {
           "filename",
@@ -34,13 +34,13 @@ return {
           {},
         },
         lualine_y = {},
-        lualine_z = { "branch" }, -- { "location" },
+        lualine_z = {}, -- { "location" },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
       },

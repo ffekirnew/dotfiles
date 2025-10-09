@@ -17,7 +17,7 @@ return {
         yaml = { "prettierd" },
         graphql = { "prettierd" },
         lua = { "stylua" },
-        python = { "black", "isort", "autopep8", "autoflake" },
+        python = { "black", "isort" },
       },
 
       format_on_save = {

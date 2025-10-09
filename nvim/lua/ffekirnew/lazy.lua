@@ -25,7 +25,7 @@ require("lazy").setup({
   { import = "ffekirnew.plugins.ui" },
 
   -- Select and set colorscheme from the colorschemes directory here
-  { import = "ffekirnew.plugins.ui.colorschemes.nightfox" },
+  { import = "ffekirnew.plugins.ui.colorschemes.rose-pine" },
 }, {
   checker = {
     enabled = true,
