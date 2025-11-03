@@ -25,6 +25,7 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         -- JS, TS, CSS, HTML
+        "vtsls",
         "prettierd",
         "stylua",
         "eslint",

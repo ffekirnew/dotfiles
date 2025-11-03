@@ -65,6 +65,7 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    vim.lsp.enable("vtsls")
     vim.lsp.enable("lua_ls")
     vim.lsp.config("lua_ls", {
       capabilities = capabilities,

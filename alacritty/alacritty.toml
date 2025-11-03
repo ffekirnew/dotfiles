@@ -14,7 +14,7 @@ option_as_alt = "Both"
 
 [font]
 normal.family = "FiraCode Nerd Font Mono" # Other options: "JetBrains Mono Nerd Font", "MesloLG Nerd Font"
-size = 22
+size = 16
 
 [general]
 import = [

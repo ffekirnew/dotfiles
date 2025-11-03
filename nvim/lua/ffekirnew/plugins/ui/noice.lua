@@ -76,7 +76,7 @@ return {
         },
       },
 
-      keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Messages." }),
+      keymap.set("n", "<leader>nx", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Messages." }),
     })
   end,
 }
