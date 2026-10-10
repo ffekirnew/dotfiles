@@ -17,7 +17,7 @@ for dir in "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/bin"; do
 done
 unset dir
 
-# Oh My Zsh (theme and plugins are installed into $ZSH_CUSTOM by install.sh)
+# Oh My Zsh (theme and plugins are installed into $ZSH_CUSTOM by zsh/bootstrap.sh)
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)

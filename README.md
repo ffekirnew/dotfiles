@@ -8,7 +8,8 @@ My dotfiles. Works on macOS and Linux (apt, dnf or pacman).
 - [X] [Neovim](./nvim)
 - [X] [Tmux](./tmux)
 - [X] [Zellij](./zellij)
-- [X] [Zsh](./zshrc)
+- [X] [Zsh](./zsh)
+- [X] [Shared helpers](./lib)
 
 ## Usage
 1. Clone the repository to your home directory.
@@ -18,20 +19,20 @@ git clone https://github.com/ffekirnew/dotfiles.git
 cd dotfiles
 ```
 
-2. Install dependencies: zsh + oh-my-zsh + powerlevel10k, Neovim >= 0.11, tmux + TPM,
-   fzf, ripgrep, fd, bat, eza, lazygit, nvm/node, alacritty themes and FiraCode Nerd Font.
-   Safe to re-run.
+2. Install the tools listed in `requirements.txt` yourself (the bootstrap scripts do not install binaries).
+
+3. Set up the configs: links them into place (existing files are moved to `<file>.bak.<timestamp>`)
+   and fetches plugin managers, plugins and themes. Safe to re-run.
 ```bash
-./install.sh
+./bootstrap.sh              # everything
+./bootstrap.sh nvim tmux    # only some tools
 ```
 
-3. Link the configs into place. Safe to re-run; existing files are moved to `<file>.bak.<timestamp>`.
-```bash
-./symlink.sh
-```
+4. Finish up: `chsh -s "$(command -v zsh)"`, then run `p10k configure`. The tmux prefix is `C-n`.
 
-4. Finish up: `chsh -s "$(command -v zsh)"`, open tmux and press `prefix + I` (prefix is `C-n`),
-   then run `p10k configure`.
+## Adding a tool
+Create `<tool>/bootstrap.sh` (source `lib/common.sh` for `link`, `require_cmd`, `clone_once`;
+see any existing one) and add the tool's name to the `TOOLS` array in `bootstrap.sh`.
 
 ## Machine-specific config
 These files are sourced if present and are not tracked:
@@ -41,7 +42,7 @@ These files are sourced if present and are not tracked:
 - `~/.gitconfig.local` for git overrides such as a work email.
 
 ## Alacritty theme
-Themes are cloned into `alacritty/themes` by `install.sh`. To use one, add to `alacritty.toml`:
+Themes are cloned into `alacritty/themes` by `alacritty/bootstrap.sh`. To use one, add to `alacritty.toml`:
 ```toml
 [general]
 import = ["~/.config/alacritty/themes/themes/<name>.toml"]
