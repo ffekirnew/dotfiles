@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- Select and set colorscheme from the colorschemes directory here
-  { import = "ffekirnew.plugins.ui.colorschemes.rose-pine" },
+  { import = "ffekirnew.plugins.ui.colorschemes.nightfox" },
 
   -- import any other plugins here
   { import = "ffekirnew.plugins" },
