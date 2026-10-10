@@ -30,6 +30,7 @@ return {
         "stylua",
         "eslint",
         -- Python
+        "pyright",
         "mypy",
         "isort",
         "black",
@@ -37,7 +38,6 @@ return {
         "autoflake",
         -- lua
         "lua-language-server",
-        "stylua",
       },
     })
   end,

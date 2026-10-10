@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import os
 import re
@@ -6,9 +6,9 @@ from argparse import ArgumentParser
 from typing import NamedTuple
 
 # Directory containing markdown files
-SOURCE_DIR = (
-    "/Users/ffekirnew/library/Mobile Documents/iCloud~md~obsidian/Documents/ffekirnew"
-)
+SOURCE_DIR = os.environ.get("NOTES_DIR", "")
+if not os.path.isdir(SOURCE_DIR):
+    raise SystemExit(f"Error: NOTES_DIR is not set or does not exist ({SOURCE_DIR or 'unset'}).")
 DAILY_NOTES_DIR = "daily-notes"
 DATE_CUTTOFF = 10
 MARKDOWN_EXTENSION = ".md"

@@ -1,4 +1,9 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
+if [ -z "$NOTES_DIR" ] || [ ! -d "$NOTES_DIR" ]; then
+  echo "Error: NOTES_DIR is not set or does not exist (${NOTES_DIR:-unset})." >&2
+  exit 1
+fi
 
 if [ -z "$1" ]; then
   echo "Error: please provide a title for the note."
@@ -7,6 +12,6 @@ fi
 
 file_name=$(echo "$1" | tr ' ' '-')
 formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
-cd "/Users/ffekirnew/library/Mobile Documents/iCloud~md~obsidian/Documents/ffekirnew" || exit
+cd "$NOTES_DIR" || exit
 touch "inbox/${formatted_file_name}"
 nvim "inbox/${formatted_file_name}"

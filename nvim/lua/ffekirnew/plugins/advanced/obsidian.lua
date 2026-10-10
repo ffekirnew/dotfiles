@@ -9,6 +9,8 @@ return {
 
   config = function()
     local obsidian = require("obsidian")
+    -- Vault location comes from $NOTES_DIR (set in .zshrc) so it works on any machine
+    local notes_dir = vim.env.NOTES_DIR or vim.fn.expand("~/personal/notes")
     obsidian.setup({
       ui = {
         enable = false,
@@ -16,7 +18,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/personal/notes",
+          path = notes_dir,
         },
       },
       notes_subdir = "inbox",
@@ -114,13 +116,19 @@ return {
     keymap.set(
       "n",
       "<leader>os",
-      ':tabnew Find Notes | :Telescope find_files search_dirs={"/Users/ffekirnew/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ffekirnew"}<cr>',
+      function()
+        vim.cmd("tabnew Find Notes")
+        require("telescope.builtin").find_files({ search_dirs = { notes_dir } })
+      end,
       { desc = "Find and open notes in a new tab" }
     )
     keymap.set(
       "n",
       "<leader>ok",
-      ":!mv '%:p' /Users/ffekirnew/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ffekirnew/zettelkasten<cr>:bd<cr>",
+      function()
+        vim.cmd("!mv " .. vim.fn.shellescape(vim.fn.expand("%:p")) .. " " .. vim.fn.shellescape(notes_dir .. "/zettelkasten"))
+        vim.cmd("bd")
+      end,
       { desc = "Move current note into the zettelkasten folder" }
     )
     keymap.set("n", "<leader>ox", ":!rm '%:p'<cr>:bd<cr>", { desc = "Delete current obsidian note" })
