@@ -59,12 +59,27 @@ return {
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    --
+    -- Highlight entire line for errors
+    -- Highlight the line number for warnings
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = "󰠠 ",
+          [vim.diagnostic.severity.INFO] = " ",
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+        },
+        numhl = {
+          [vim.diagnostic.severity.WARN] = "WarningMsg",
+        },
+      },
+    })
 
+    vim.lsp.enable("pyright")
     vim.lsp.enable("vtsls")
     vim.lsp.enable("lua_ls")
     vim.lsp.config("lua_ls", {

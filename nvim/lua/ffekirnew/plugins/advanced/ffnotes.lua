@@ -1,6 +1,5 @@
 return {
   "ffekirnew/ffnotes-nvim",
-  branch = "fix",
   dependencies = {
     "nvim-telescope/telescope.nvim",
   },

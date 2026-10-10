@@ -1,7 +1,12 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
+if [ -z "$NOTES_DIR" ] || [ ! -d "$NOTES_DIR" ]; then
+  echo "Error: NOTES_DIR is not set or does not exist (${NOTES_DIR:-unset})." >&2
+  exit 1
+fi
 
 # Directory containing markdown files
-VAULT_DIR="/Users/ffekirnew/library/Mobile Documents/iCloud~md~obsidian/Documents/ffekirnew"
+VAULT_DIR="$NOTES_DIR"
 SOURCE_DIR="zettelkasten"
 DEST_DIR="notes"
 

@@ -1,0 +1,12 @@
+[user]
+	name = ffekirnew
+	email = ffekirnew0808@gmail.com
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+# Machine-specific overrides (not tracked)
+[include]
+	path = ~/.gitconfig.local
