@@ -6,17 +6,8 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    javascript = { "prettierd" },
-    typescript = { "prettierd" },
-    javascriptreact = { "prettierd" },
-    typescriptreact = { "prettierd" },
-    css = { "prettierd" },
-    html = { "prettierd" },
-    json = { "prettierd" },
-    yaml = { "prettierd" },
-    graphql = { "prettierd" },
     lua = { "stylua" },
-    python = { "black", "isort" },
+    python = { "ruff_organize_imports", "ruff_format" },
   },
 
   format_on_save = {

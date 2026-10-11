@@ -79,8 +79,26 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.enable("pyright")
-vim.lsp.enable("vtsls")
+-- Python: basedpyright for types/completion/navigation, ruff for lint/fixes/imports
+vim.lsp.enable("basedpyright")
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      disableOrganizeImports = true, -- ruff organizes imports
+    },
+  },
+})
+vim.lsp.enable("ruff")
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("ffekirnew_ruff_hover", { clear = true }),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client.name == "ruff" then
+      client.server_capabilities.hoverProvider = false -- leave hover (K) to basedpyright
+    end
+  end,
+})
+
 vim.lsp.enable("lua_ls")
 vim.lsp.config("lua_ls", {
   capabilities = capabilities,

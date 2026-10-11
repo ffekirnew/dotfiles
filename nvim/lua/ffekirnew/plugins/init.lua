@@ -41,7 +41,6 @@ for _, module in ipairs({
   "ui.nvim-tree",
   "editor.lsp.nvim-lspconfig",
   "editor.lsp.mason",
-  "editor.linting.nvim-lint",
   "editor.formatting.conform",
   "editor.comment",
   "editor.nvim-surround",

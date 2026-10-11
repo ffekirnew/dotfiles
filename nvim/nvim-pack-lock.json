@@ -89,10 +89,6 @@
       "rev": "72a05f62c52241bc7441c820eb53946f92b2e6a4",
       "src": "https://github.com/NvChad/nvim-colorizer.lua"
     },
-    "nvim-lint": {
-      "rev": "f6230a5c06ba59e6059c14637f1dbe29a7978b9b",
-      "src": "https://github.com/mfussenegger/nvim-lint"
-    },
     "nvim-lsp-file-operations": {
       "rev": "6f0997687c8dd2e3217a160167078b8bff052c43",
       "src": "https://github.com/antosha417/nvim-lsp-file-operations"

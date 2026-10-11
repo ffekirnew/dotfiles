@@ -23,19 +23,11 @@ mason.setup({
 
 mason_tool_installer.setup({
   ensure_installed = {
-    -- JS, TS, CSS, HTML
-    "vtsls",
-    "prettierd",
-    "stylua",
-    "eslint",
     -- Python
-    "pyright",
-    "mypy",
-    "isort",
-    "black",
-    "autopep8",
-    "autoflake",
-    -- lua
+    "basedpyright", -- types, completion, navigation
+    "ruff", -- lint, format, organize imports
+    -- lua (for editing this config)
     "lua-language-server",
+    "stylua",
   },
 })
