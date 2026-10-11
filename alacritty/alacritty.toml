@@ -4,14 +4,14 @@
 TERM = "xterm-256color"
 
 [window]
-padding.x = 2
+padding.x = 0
 padding.y = 0
-decorations = "Buttonless" #  Other options: "Fullscreen" | "Borderless" | "Titlebar" | "None"
-opacity = 0.95
+decorations = "Transparent" #  Other options: "Fullscreen" | "Borderless" | "Titlebar" | "None"
+opacity = 0.80
 blur = true
 startup_mode = "Fullscreen" # Other options: "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
 option_as_alt = "Both"
 
 [font]
-normal.family = "FiraCode Nerd Font Mono" # Other options: "JetBrains Mono Nerd Font", "MesloLG Nerd Font"
-size = 16
+normal.family = "FiraCode Nerd Font" # Other options: "JetBrains Mono Nerd Font", "MesloLG Nerd Font"
+size = 18

@@ -1,42 +1,30 @@
-return {
-  "stevearc/conform.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
-  config = function()
-    local conform = require("conform")
+vim.pack.add({
+  "https://github.com/stevearc/conform.nvim",
+})
 
-    conform.setup({
-      formatters_by_ft = {
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescriptreact = { "prettierd" },
-        css = { "prettierd" },
-        html = { "prettierd" },
-        json = { "prettierd" },
-        yaml = { "prettierd" },
-        graphql = { "prettierd" },
-        lua = { "stylua" },
-        python = { "black", "isort" },
-      },
+local conform = require("conform")
 
-      format_on_save = {
-        lsp_fallback = true,
-      },
+conform.setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "ruff_organize_imports", "ruff_format" },
+  },
 
-      format_after_save = {
-        lsp_fallback = true,
-        async = true,
-      },
-    })
+  format_on_save = {
+    lsp_fallback = true,
+  },
 
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
-    keymap.set({ "n", "v" }, "<leader>fm", function()
-      conform.format({
-        lsp_fallback = true,
-        async = true,
-      })
-    end, { desc = "Format file or range (in visual mode)" })
-  end,
-}
+  format_after_save = {
+    lsp_fallback = true,
+    async = true,
+  },
+})
+
+-- set keymaps
+local keymap = vim.keymap -- for conciseness
+keymap.set({ "n", "v" }, "<leader>fm", function()
+  conform.format({
+    lsp_fallback = true,
+    async = true,
+  })
+end, { desc = "Format file or range (in visual mode)" })

@@ -5,13 +5,12 @@
 
 # Core (used by more than one dotfiles directory)
 zsh           # login shell; bin/*.sh use #!/usr/bin/env zsh
-git           # lazy.nvim, TPM and oh-my-zsh clones; git/gitconfig
+git           # vim.pack, TPM and oh-my-zsh clones; git/gitconfig
 gh            # git credential helper (git/gitconfig); nvim gh-dash terminal
-neovim        # >= 0.11 (vim.lsp.enable/vim.lsp.config); apt often ships older, use brew/pacman/dnf or release tarball
+neovim        # >= 0.12 (vim.pack); apt often ships older, use brew/pacman/dnf or nvim/install.sh
 ripgrep       # rg; telescope live_grep and grep_string
 fd            # telescope find_files; Debian/Ubuntu: fd-find (binary: fdfind); Fedora: fd-find
 python3       # >= 3.9 (bin/orp.py); mason pip tools need venv (Debian/Ubuntu: python3-venv)
-node          # node + npm; mason npm packages (vtsls, prettierd, eslint, pyright); Debian/Ubuntu: nodejs npm
 make          # telescope-fzf-native and luasnip (make install_jsregexp) builds
 gcc           # C compiler for treesitter parsers; Debian/Ubuntu: build-essential; Arch: base-devel
 curl          # mason downloads; nvm install script
@@ -30,12 +29,11 @@ tmux          # prefix C-n; tmux-256color terminfo (ncurses)
 xclip         # tmux-yank clipboard on X11; or wl-clipboard (wl-copy) on Wayland; macOS: pbcopy built in
 
 # Neovim (nvim/)
-# Mason installs vtsls, prettierd, stylua, eslint, pyright, mypy, isort, black, autopep8,
-# autoflake and lua-language-server itself (plugins/editor/lsp/mason.lua); only prerequisites above.
+# Mason installs basedpyright, ruff, lua-language-server and stylua itself
+# (plugins/editor/lsp/mason.lua); only prerequisites above (basedpyright needs python3-venv).
 lazygit       # <leader>lg terminal (plugins/terminals/toggleterm.lua); not in older apt repos
 gh-dash       # gh extension: gh extension install dlvhdr/gh-dash (toggleterm.lua); needs gh
-ruff          # python linter (plugins/editor/linting/nvim-lint.lua); not installed by mason here
-golangci-lint # go linter (nvim-lint.lua); only needed for Go files
+tree-sitter-cli # builds parsers for nvim-treesitter main (editor/treesitter/init.lua); brew/pacman: tree-sitter-cli
 
 # Terminals (optional, only if you use them)
 alacritty     # terminal emulator; alacritty/alacritty.toml
@@ -46,4 +44,4 @@ zellij        # multiplexer; zellij/config.kdl (minimum version not verified)
 
 # Installed by ./bootstrap.sh (don't install these yourself):
 # oh-my-zsh, powerlevel10k, zsh-autosuggestions (zsh/), TPM + tmux plugins (tmux/),
-# alacritty-theme (alacritty/), Neovim plugins via lazy.nvim and LSP tools via Mason (nvim/)
+# alacritty-theme (alacritty/), Neovim plugins via vim.pack and LSP tools via Mason (nvim/)

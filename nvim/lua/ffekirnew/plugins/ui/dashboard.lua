@@ -1,15 +1,11 @@
-return {
-  "ffekirnew/dashboard-nvim",
-  lazy = true,
-  event = "VimEnter",
-  config = function()
-    require("dashboard").setup({
-      config = {
-        week_header = {
-          enable = true,
-        },
-      },
-    })
-  end,
-  dependencies = { { "nvim-tree/nvim-web-devicons" } },
-}
+vim.pack.add({
+  "https://github.com/ffekirnew/dashboard-nvim",
+})
+
+require("dashboard").setup({
+  config = {
+    week_header = {
+      enable = true,
+    },
+  },
+})

@@ -86,3 +86,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Machine-specific config (not tracked): extra PATHs, SDKs, aliases, etc.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+export PATH="$HOME/.local/bin:$PATH"
