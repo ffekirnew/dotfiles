@@ -13,9 +13,6 @@ return {
         disabled_filetypes = {
           "NvimTree",
           "NVimTree",
-          "Avante",
-          "AvanteInput",
-          "AvanteSelectedFiles",
         },
       },
       sections = {

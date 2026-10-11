@@ -17,7 +17,6 @@ require("lazy").setup({
 
   -- import any other plugins here
   { import = "ffekirnew.plugins" },
-  { import = "ffekirnew.plugins.ai" },
   { import = "ffekirnew.plugins.advanced" },
   { import = "ffekirnew.plugins.editor" },
   { import = "ffekirnew.plugins.editor.lsp" },
@@ -25,7 +24,6 @@ require("lazy").setup({
   { import = "ffekirnew.plugins.editor.formatting" },
   { import = "ffekirnew.plugins.editor.treesitter" },
   { import = "ffekirnew.plugins.git" },
-  { import = "ffekirnew.plugins.terminals" },
   { import = "ffekirnew.plugins.ui" },
 }, {
   checker = {
