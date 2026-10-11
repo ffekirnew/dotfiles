@@ -1,6 +1,5 @@
-return {
-  "lewis6991/gitsigns.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" },
-  config = true,
-}
+vim.pack.add({
+  "https://github.com/lewis6991/gitsigns.nvim",
+})
+
+require("gitsigns").setup()
