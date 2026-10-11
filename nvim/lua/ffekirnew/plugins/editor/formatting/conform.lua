@@ -13,11 +13,6 @@ conform.setup({
   format_on_save = {
     lsp_fallback = true,
   },
-
-  format_after_save = {
-    lsp_fallback = true,
-    async = true,
-  },
 })
 
 -- set keymaps

@@ -34,6 +34,7 @@ xclip         # tmux-yank clipboard on X11; or wl-clipboard (wl-copy) on Wayland
 lazygit       # <leader>lg terminal (plugins/terminals/toggleterm.lua); not in older apt repos
 gh-dash       # gh extension: gh extension install dlvhdr/gh-dash (toggleterm.lua); needs gh
 tree-sitter-cli # builds parsers for nvim-treesitter main (editor/treesitter/init.lua); brew/pacman: tree-sitter-cli
+claude        # optional: agent CLI for sidekick.nvim <leader>aa (plugins/advanced/sidekick.lua); codex, gemini etc. also work
 
 # Terminals (optional, only if you use them)
 alacritty     # terminal emulator; alacritty/alacritty.toml

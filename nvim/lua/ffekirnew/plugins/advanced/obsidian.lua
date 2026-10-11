@@ -82,7 +82,7 @@ obsidian.setup({
     },
   },
   completion = {
-    nvim_cmp = true,
+    nvim_cmp = false, -- archived obsidian.nvim has no blink.cmp source
     min_chars = 2,
   },
 })
