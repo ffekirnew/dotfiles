@@ -110,8 +110,9 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "obsidian.nvim": {
-      "rev": "726b60c89f4bafef267a714ea1faa1335bdd414a",
-      "src": "https://github.com/epwalsh/obsidian.nvim"
+      "rev": "1212014bb22a1f44a655e8e706659892b8e43e59",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim",
+      "version": "3.0.0 - 4.0.0"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

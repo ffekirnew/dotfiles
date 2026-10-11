@@ -1,11 +1,12 @@
 vim.pack.add({
-  "https://github.com/epwalsh/obsidian.nvim",
+  { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("3") },
 })
 
 local obsidian = require("obsidian")
 -- Vault location comes from $NOTES_DIR (set in .zshrc) so it works on any machine
 local notes_dir = vim.env.NOTES_DIR or vim.fn.expand("~/personal/notes")
 obsidian.setup({
+  legacy_commands = false, -- `:Obsidian new` instead of `:ObsidianNew`
   ui = {
     enable = false,
   },
@@ -18,9 +19,8 @@ obsidian.setup({
   notes_subdir = "inbox",
   new_notes_location = "notes_subdir",
 
-  disable_frontmatter = false,
   templates = {
-    subdir = "templates",
+    folder = "templates",
     date_format = "%Y-%m-%d",
     time_format = "%H:%M:%S",
   },
@@ -32,25 +32,27 @@ obsidian.setup({
     template = "daily-note.md",
   },
 
-  note_frontmatter_func = function(note)
-    local out = {
-      date = note.date or os.date(),
-      tags = note.tags or {},
-      hubs = note.hubs or {},
-      urls = note.urls or {},
-      status = note.note_status or "active",
-    }
+  frontmatter = {
+    func = function(note)
+      local out = {
+        date = note.date or os.date(),
+        tags = note.tags or {},
+        hubs = note.hubs or {},
+        urls = note.urls or {},
+        status = note.note_status or "active",
+      }
 
-    -- `note.metadata` contains any manually added fields in the frontmatter.
-    -- So here we just make sure those fields are kept in the frontmatter.
-    if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-      for k, v in pairs(note.metadata) do
-        out[k] = v
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
       end
-    end
 
-    return out
-  end,
+      return out
+    end,
+  },
 
   note_id_func = function(title)
     local suffix = ""
@@ -65,25 +67,22 @@ obsidian.setup({
     return current_datetime .. "_" .. suffix
   end,
 
-  mappings = {
-    -- overrides the 'gf' mapping to work on markdown/wiki links within your vault
-    ["<leader>of"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
-    -- toggle check-boxes
-    ["<leader>ch"] = {
-      action = function()
-        return require("obsidian").util.toggle_checkbox()
-      end,
-      opts = { buffer = true },
-    },
-  },
+  -- completion comes from the built-in obsidian-ls LSP server, so blink.cmp picks it up
   completion = {
-    nvim_cmp = false, -- archived obsidian.nvim has no blink.cmp source
     min_chars = 2,
+  },
+
+  -- keep the old toggle order: [ ] -> [x] (the fork defaults to [ ] -> [~])
+  checkbox = {
+    order = { " ", "x", ">", "~", "!" },
+  },
+
+  callbacks = {
+    enter_note = function()
+      -- follow markdown/wiki links within your vault
+      vim.keymap.set("n", "<leader>of", "<cmd>Obsidian follow_link<cr>", { buffer = true, desc = "Follow obsidian link" })
+      vim.keymap.set("n", "<leader>ch", "<cmd>Obsidian toggle_checkbox<cr>", { buffer = true, desc = "Toggle checkbox" })
+    end,
   },
 })
 
@@ -92,19 +91,19 @@ local keymap = vim.keymap -- for conciseness
 keymap.set(
   "n",
   "<leader>on",
-  "<cmd>:tabnew New Note | ObsidianNew<cr>",
+  "<cmd>:tabnew New Note | Obsidian new<cr>",
   { desc = "Create a new obsidian note in a new tab" }
 )
 keymap.set(
   "n",
   "<leader>ot",
-  "<cmd>:tabnew New Note | ObsidianNewFromTemplate<cr>",
+  "<cmd>:tabnew New Note | Obsidian new_from_template<cr>",
   { desc = "Create a new obsidian note from template in a new tab" }
 )
 keymap.set(
   "n",
   "<leader>od",
-  "<cmd>:tabnew New Daily Note | ObsidianToday<cr>",
+  "<cmd>:tabnew New Daily Note | Obsidian today<cr>",
   { desc = "Create/open today's note in a new tab" }
 )
 keymap.set(
