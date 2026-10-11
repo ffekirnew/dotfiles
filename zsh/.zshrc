@@ -77,7 +77,7 @@ if [[ -z "$NOTES_DIR" ]]; then
 fi
 alias oo='cd "$NOTES_DIR"'
 alias or='nvim -p "$NOTES_DIR"/inbox/*.md'
-alias start='nvim -c ":ObsidianToday"'
+alias start='nvim -c ":Obsidian today"'
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
